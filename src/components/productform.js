@@ -70,7 +70,7 @@ function ProductForm(props){
                     value={pDescription} />
         </div>
         <div className="form-check form-switch">
-            <input className="form-check-input" type="checkbox" role="switch" id="isAvailable" onChange={availabilityInputHandler} value={pAvailability}/>
+            <input className="form-check-input" type="checkbox" role="switch" id="isAvailable" onChange={availabilityInputHandler} checked={pAvailability}/>
             <label className="form-check-label" for="isAvailable" >Is product available in stock?</label>
         </div>
         <div className="form-group">

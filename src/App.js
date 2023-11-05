@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import './App.css';
 import CreateProduct from './components/createproduct';
 import Products from './components/product';
@@ -44,32 +45,32 @@ let products = [
       price: 14
   }
 ];
-
 function App() {
+  let [newProductList, setNewProductList] = useState(products)
+  function createProduct(product){
+    setNewProductList([product, ...newProductList])
+  }
   return (
     <div>
-    <CreateProduct></CreateProduct>
+    <CreateProduct createProduct={createProduct}></CreateProduct>
     <div className='row'>
-
       <div className='col-lg-8 mx-auto'>
         <ul className='list-group shadow'>
           {
-            products.map((product)=>{
-              return  <Products
-                        pId={product.pID}
-                        name = {product.pName}
-                        description = {product.desc}
-                        isAvailable = {product.isAvailable}
-                        imgURL = {product.image}
-                        price = {product.price}
-                        maxLimit = {product.maxLimit}
+            newProductList.map((product)=>{
+              return <Products
+                        pId={product?.pID}
+                        name = {product?.pName}
+                        description = {product?.desc}
+                        isAvailable = {product?.isAvailable}
+                        imgURL = {product?.image}
+                        price = {product?.price}
+                        maxLimit = {product?.maxLimit}
                       ></Products>
             })
           }
         </ul>
-        
       </div>
-
     </div>
     </div>
 
