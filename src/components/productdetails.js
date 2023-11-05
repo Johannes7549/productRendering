@@ -14,11 +14,6 @@ function ProductDetails(props){
         }
         
     }
-    function disableButton(){
-        if (props.productLimit==productCount){
-            return false
-        }
-    }
     return (
         <div class="d-flex align-items-center justify-content-start mt-1">
                   <h6 class="font-weight-bold my-2 mx-2">{props.price}</h6>
