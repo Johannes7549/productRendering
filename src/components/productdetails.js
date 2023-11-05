@@ -24,7 +24,7 @@ function ProductDetails(props){
                   <h6 class="font-weight-bold my-2 mx-2">{props.price}</h6>
                   <Button eventhandler = {decrementProductCount} >-</Button>
                   <span style={{padding:"14px 12px",fontSize:"14px "}}>{productCount}</span>
-                  <Button  eventhandler= {incrementProductCount} disabled = {disableButton}>+</Button>
+                  <Button  eventhandler= {incrementProductCount}>+</Button>
                   <span className={badgeClass}>{props.isAvailable === true?"Available":"Unavailable"}</span>
         </div>
     )
