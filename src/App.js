@@ -68,14 +68,13 @@ function App() {
   }
   return (
     <div>
-    <CreateProduct createProduct={createProduct}></CreateProduct>
-
     <div className='row'>
+    <CreateProduct createProduct={createProduct}></CreateProduct>
       <div className='col-lg-8 mx-auto'>
       <FilterProduct filterProduct ={onFilterValue}></FilterProduct>
         <ul className='list-group shadow'>
           {
-            newProductList.map((product)=>{
+            filteredList.map((product)=>{
               return <Products
                         key ={product?.pID}
                         pId={product?.pID}
