@@ -2,6 +2,7 @@ import { useState } from 'react';
 import './App.css';
 import CreateProduct from './components/createproduct';
 import Products from './components/product';
+import FilterProduct from './components/FilterProducts/filterproduct';
 
 let products = [
   {
@@ -47,18 +48,36 @@ let products = [
 ];
 function App() {
   let [newProductList, setNewProductList] = useState(products)
+  let [filterValue, setFileterValue] = useState('all') 
+  let filteredList = newProductList.filter((product)=>{
+    if (filterValue==="available"){
+      return product.isAvailable === true
+    }else if (filterValue==="unavailable"){
+      return product.isAvailable===false
+    }else{
+      return product
+    }
+  })
   function createProduct(product){
+    product.pID = newProductList.length+1
     setNewProductList([product, ...newProductList])
+
+  }
+  function onFilterValue(filter){
+    setFileterValue(filter)
   }
   return (
     <div>
     <CreateProduct createProduct={createProduct}></CreateProduct>
+
     <div className='row'>
       <div className='col-lg-8 mx-auto'>
+      <FilterProduct filterProduct ={onFilterValue}></FilterProduct>
         <ul className='list-group shadow'>
           {
             newProductList.map((product)=>{
               return <Products
+                        key ={product?.pID}
                         pId={product?.pID}
                         name = {product?.pName}
                         description = {product?.desc}
