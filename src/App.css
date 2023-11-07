@@ -27,6 +27,10 @@
 .App-link {
   color: #61dafb;
 }
+.align-items-lg-center{
+  background: -webkit-linear-gradient(to right, #60817d, #a0c168);
+  background: linear-gradient(to right, #1b3935, #d9efb1);
+}
 
 @keyframes App-logo-spin {
   from {
